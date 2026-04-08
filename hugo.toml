@@ -1,4 +1,4 @@
-baseURL = 'https://jocemarcanabarro.github.io/o-arquivista/'
+baseURL = 'https://www.oarquivista.com/'
 locale = 'en-us'
 title = 'O Arquivista VIP'
 theme = "PaperMod"
@@ -8,3 +8,6 @@ unsafe = true
 [params.cover]
     responsiveImages = true
     linkFullImages = true
+
+[markup.goldmark.renderer]
+unsafe = true
