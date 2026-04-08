@@ -51,20 +51,20 @@ async def handler(event):
         os.makedirs(CAMINHO_POSTS, exist_ok=True)
         post_path = os.path.join(CAMINHO_POSTS, f"{slug}.md")
 
-        # 👇 A MÁGICA MUDA AQUI 👇
+        # As barras (/) antes de images/ foram removidas para funcionar no GitHub Pages
         with open(post_path, "w", encoding="utf-8") as f:
             f.write(f"""---
 title: "{titulo_seo}"
 date: {event.date.isoformat()}
 description: "Confira o projeto {titulo_seo} para CNC Laser. Vetores profissionais testados em MDF e Acrílico."
 cover:
-    image: "/images/projetos/{foto_nome}"
+    image: "images/projetos/{foto_nome}"
     alt: "{titulo_seo}"
     hiddenInList: false
     hiddenInSingle: false
 ---
 
-![{titulo_seo}](/images/projetos/{foto_nome})
+![{titulo_seo}](images/projetos/{foto_nome})
 
 O projeto **{titulo_seo}** é um dos itens exclusivos que compõem o catálogo de **O Arquivista VIP**. 
 
@@ -72,7 +72,7 @@ Este arquivo foi desenvolvido e testado para garantir a melhor performance em su
 
 ### 🚀 Como acessar este projeto?
 
-Para baixar este arquivo e explorar milhares de outros vetores profissionais, entre no nosso grupo de entrada. Lá você terá informações sobre como acessar o acervo completo e conferir nossos conteúdos gratuitos.
+Para baixar este arquivo e explorar milhares de outros vetores profissionais, entre no nosso grupo de entrada. Lá você terá informações sobre como acessar o acervo completo e conferir nossos conteúdos gratuitos. Não há custo algum para os lojistas, nosso modelo é focado em assinantes.
 
 ### 📥 [Entrar no Grupo O Arquivista]({LINK_FREE})
 
@@ -81,6 +81,11 @@ Para baixar este arquivo e explorar milhares de outros vetores profissionais, en
         
         print(f"✅ Página gerada com sucesso: {titulo_seo}")
         os.system(f"cd {CAMINHO_BASE} && hugo")
+        
+        # Envia automaticamente para a internet (GitHub Pages)
+        print("📤 Enviando o novo projeto para a internet...")
+        os.system(f"cd {CAMINHO_BASE} && git add . && git commit -m 'Novo projeto VIP: {titulo_seo}' && git push")
+        print("🚀 Concluído! O site estará atualizado em cerca de 1 minuto.")
 
 # ==========================================
 # --- INICIALIZAÇÃO ---
