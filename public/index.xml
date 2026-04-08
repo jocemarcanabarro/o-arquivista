@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>O Arquivista VIP</title>
-    <link>http://localhost:1313/</link>
+    <link>https://jocemarcanabarro.github.io/o-arquivista/</link>
     <description>Recent content on O Arquivista VIP</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Apr 2026 06:57:42 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Apr 2026 08:12:46 +0000</lastBuildDate>
+    <atom:link href="https://jocemarcanabarro.github.io/o-arquivista/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projeto Corte Laser Mãos Segurando Um Coração Para O Dia Das Mães - Arquivo DXF</title>
-      <link>http://localhost:1313/posts/projeto-corte-laser-m%C3%A3os-segurando-um-cora%C3%A7%C3%A3o-para-o-dia-das-m%C3%A3es-arquivo-dxf/</link>
-      <pubDate>Wed, 08 Apr 2026 06:57:42 +0000</pubDate>
-      <guid>http://localhost:1313/posts/projeto-corte-laser-m%C3%A3os-segurando-um-cora%C3%A7%C3%A3o-para-o-dia-das-m%C3%A3es-arquivo-dxf/</guid>
-      <description>Confira o projeto Projeto Corte Laser Mãos Segurando Um Coração Para O Dia Das Mães - Arquivo DXF para CNC Laser. Vetores profissionais testados em MDF e Acrílico.</description>
+      <title>Projeto Corte Laser Floreira Dia Das Maes - Arquivo DXF</title>
+      <link>https://jocemarcanabarro.github.io/o-arquivista/posts/projeto-corte-laser-floreira-dia-das-maes-arquivo-dxf/</link>
+      <pubDate>Wed, 08 Apr 2026 08:12:46 +0000</pubDate>
+      <guid>https://jocemarcanabarro.github.io/o-arquivista/posts/projeto-corte-laser-floreira-dia-das-maes-arquivo-dxf/</guid>
+      <description>Confira o projeto Projeto Corte Laser Floreira Dia Das Maes - Arquivo DXF para CNC Laser. Vetores profissionais testados em MDF e Acrílico.</description>
     </item>
   </channel>
 </rss>
