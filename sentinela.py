@@ -52,7 +52,7 @@ async def handler(event):
         os.makedirs(CAMINHO_POSTS, exist_ok=True)
         post_path = os.path.join(CAMINHO_POSTS, f"{slug}.md")
 
-        # Gerando o conteúdo com o novo foco em Laser, 3D, Papercraft e Sublimação
+        # Gerando o conteúdo com foco total em conversão VIP
         with open(post_path, "w", encoding="utf-8") as f:
             f.write(f"""---
 title: "{titulo_seo}"
@@ -67,20 +67,20 @@ cover:
 
 ![{titulo_seo}](images/projetos/{foto_nome})
 
-O projeto **{titulo_seo}** é apenas uma pequena amostra do que entregamos diariamente para centenas de oficinas e criadores em todo o Brasil.
+O projeto **{titulo_seo}** é apenas uma pequena amostra do que entregamos diariamente para centenas de oficinas e criadores que buscam alta performance.
 
 ---
 
 ### 🏆 Onde está o verdadeiro tesouro?
 
-Se você busca profissionalismo e quer parar de perder tempo procurando arquivos que não funcionam, o **Arquivista VIP** foi feito para você. 
+Se você busca profissionalismo e quer parar de perder tempo procurando arquivos que não funcionam ou que danificam seu material, o **Arquivista VIP** foi feito para você. 
 
-Ao se tornar um membro VIP, você não acessa apenas este projeto, mas abre as portas para o maior acervo multidisciplinar do Telegram:
+Ao se tornar um membro VIP, você abre as portas para o maior acervo multidisciplinar do Telegram:
 
-* 🚀 **Corte Laser Premium:** Vetores testados em DXF, SVG e AI.
-* 🖨️ **Impressão 3D:** Arquivos STL prontos para fatiar.
-* ✂️ **Papercraft:** Projetos incríveis para corte em papel.
-* 🎨 **Sublimação e muito mais:** Artes em alta resolução.
+* 🚀 **Corte Laser Premium:** Vetores testados e prontos para uso.
+* 🖨️ **Impressão 3D:** Arquivos STL de alta qualidade.
+* ✂️ **Papercraft:** Projetos criativos para corte em papel.
+* 🎨 **Sublimação e muito mais:** Artes em alta resolução para acelerar sua produção.
 
 **Assine O Arquivista VIP e acelere sua produtividade agora mesmo!**
 
@@ -106,7 +106,7 @@ Ao se tornar um membro VIP, você não acessa apenas este projeto, mas abre as p
 # ==========================================
 
 print("📡 Jotta, o Sentinela do Arquivista está online!")
-print("Monitorando VIPs para alimentar o domínio oarquivista.com...")
+print("Monitorando VIPs para alimentar o domínio www.oarquivista.com...")
 
 client.start()
 client.run_until_disconnected()

@@ -11,6 +11,19 @@ theme = 'PaperMod'
     showShareButtons = true
     showCodeCopyButtons = true
 
+    # --- CONFIGURAÇÃO DA LOGO NO TOPO ---
+    [params.label]
+        text = "O Arquivista"
+        icon = "images/logo.png"
+        iconHeight = 35
+
+    # --- CONFIGURAÇÃO DO ÍCONE DA ABA (FAVICON) ---
+    [params.assets]
+        favicon = "images/logo.png"
+        favicon16x16 = "images/logo.png"
+        favicon32x32 = "images/logo.png"
+        apple_touch_icon = "images/logo.png"
+
 [markup.goldmark.renderer]
     unsafe = true
 
