@@ -1,13 +1,20 @@
 baseURL = 'https://www.oarquivista.com/'
-locale = 'en-us'
+languageCode = 'pt-br'
 title = 'O Arquivista VIP'
-theme = "PaperMod"
-[markup.goldmark.renderer]
-unsafe = true
+theme = 'PaperMod'
 
-[params.cover]
-    responsiveImages = true
-    linkFullImages = true
+[params]
+    env = 'production'
+    title = 'O Arquivista VIP'
+    description = 'O maior acervo multidisciplinar para Laser, 3D, Papercraft e Sublimação.'
+    defaultTheme = 'dark'
+    showShareButtons = true
+    showCodeCopyButtons = true
 
 [markup.goldmark.renderer]
-unsafe = true
+    unsafe = true
+
+[[menu.main]]
+    name = 'Grupo Gratuito (Telegram)'
+    url = 'https://t.me/O_Arquivista'
+    weight = 10
