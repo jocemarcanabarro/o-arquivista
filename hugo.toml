@@ -4,27 +4,29 @@ title = 'O Arquivista VIP'
 theme = 'PaperMod'
 enableRobotsTXT = true
 
+[taxonomies]
+  category = 'categories'
+
 [params]
     env = 'production'
     title = 'O Arquivista VIP'
-    description = 'Catálogo multidisciplinar de arquivos para Laser, 3D e Sublimação.'
+    description = 'O maior catálogo multidisciplinar de vetores e arquivos digitais.'
     defaultTheme = 'dark'
     googleSiteVerification = "vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0"
     
-    # --- CONFIGURAÇÃO DE GRADE ---
+    # Exibir posts na Home (Últimos arquivos postados)
+    listSections = ["posts"]
     showFullTextContent = false
     displayFullPostContent = false
     hideMeta = true
-    
-    # Isso força o PaperMod a usar o layout de lista compacta
-    [params.homeInfoParams]
-        Title = "Catálogo O Arquivista"
-        Content = "Os melhores vetores para sua produção."
+
+    [params.label]
+        text = "O Arquivista"
+        icon = "images/logo.png"
+        iconHeight = 35
 
     [params.assets]
         favicon = "images/logo.png"
-        # Forçamos o caminho relativo correto do CSS
-        customCSS = ["css/extended.css"]
 
 [markup.goldmark.renderer]
     unsafe = true
