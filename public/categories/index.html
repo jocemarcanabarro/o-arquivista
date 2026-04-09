@@ -55,13 +55,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <style>
  
-.main, .list {
+.main, .list, .terms {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
     gap: 25px !important;
     max-width: 1200px !important;
     margin: auto !important;
     padding: 20px !important;
+}
+
+ 
+.page-header h1 {
+    grid-column: 1 / -1 !important;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
  
@@ -98,6 +106,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
  
 .footer { grid-column: 1 / -1 !important; padding: 60px 0 !important; text-align: center !important; }
+
+ 
+@media (max-width: 600px) {
+    .main, .list { grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
+    .page-header h1 { font-size: 1.2rem; }
+}
 </style>
 <meta property="og:url" content="https://www.oarquivista.com/categories/">
   <meta property="og:site_name" content="O Arquivista VIP">
@@ -162,12 +176,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </header>
 
 <ul class="terms-tags">
-    <li>
-        <a href="https://www.oarquivista.com/categories/corte-laser/">Corte Laser <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://www.oarquivista.com/categories/impress%C3%A3o-3d/">Impressão 3D <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
 </ul>
     </main>
     
