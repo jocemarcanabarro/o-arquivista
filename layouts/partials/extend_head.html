@@ -11,16 +11,17 @@
     padding: 10px !important;
 }
 
-/* --- FOTOS QUADRADAS WEBP --- */
-.entry-cover img, .post-entry img {
+/* --- FIX DAS IMAGENS (PARA APARECER NAS CATEGORIAS) --- */
+.entry-cover, .entry-cover img, .post-entry img {
+    display: block !important;
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
     border-radius: 10px !important;
-    display: block !important;
+    background: #2a2b2d !important;
 }
 
-/* --- MENU LATERAL (PC) --- */
+/* --- BARRA LATERAL (APENAS PC) --- */
 @media (min-width: 900px) {
     .header {
         position: fixed !important;
@@ -36,11 +37,14 @@
     #nav-container { margin-top: 30px; display: block !important; }
 }
 
-/* --- MENU NO TOPO (CELULAR) --- */
+/* --- BARRA NO TOPO (CELULAR) --- */
 @media (max-width: 899px) {
-    .header { position: relative !important; width: 100% !important; padding: 15px 10px !important; }
-    .main { margin-left: 0 !important; }
-    .main, .list { grid-template-columns: repeat(2, 1fr) !important; }
+    .header { 
+        position: relative !important; 
+        width: 100% !important; 
+        padding: 15px 10px !important; 
+    }
+    .main { margin-left: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
     
     #nav-container {
         display: flex !important;
@@ -49,7 +53,7 @@
         padding: 10px 0 !important;
         width: 100% !important;
     }
-    #nav-container h3 { display: none; }
+    #nav-container h3 { display: none; } /* Esconde o título no celular */
 }
 
 /* --- ESTILO DOS BOTÕES --- */
@@ -64,14 +68,21 @@
     margin-bottom: 8px;
     text-align: center;
     border: 1px solid #444;
-    transition: 0.3s;
 }
 .btn-nav:hover { background: #00ff00; color: #000 !important; }
 
-/* LIMPEZA */
+/* LIMPEZA GERAL */
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
 .entry-header h2 { font-size: 0.9rem !important; text-align: center; padding: 5px; }
 .post-entry { border: none !important; background: transparent !important; }
+
+/* LINK DO TELEGRAM NA BASE */
+.telegram-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
 </style>
 
 <div id="nav-container" style="display: none;">
@@ -79,6 +90,10 @@
     <a href="/categories/impressao-3d/" class="btn-nav">📦 3D</a>
     <a href="/categories/corte-laser/" class="btn-nav">🔥 Laser</a>
     <a href="/" class="btn-nav">🏠 Tudo</a>
+</div>
+
+<div class="telegram-footer">
+    <a href="https://t.me/O_Arquivista" target="_blank" style="color: #0088cc; text-decoration: none; font-weight: bold;">➡️ Entre no Grupo Gratuito do Telegram</a>
 </div>
 
 <script>

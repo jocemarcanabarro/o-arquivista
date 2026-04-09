@@ -12,10 +12,10 @@ theme = 'PaperMod'
     description = 'Catálogo de arquivos para Laser e 3D'
     defaultTheme = 'dark'
     
-    # Faz os posts aparecerem na Home
+    # Faz os posts aparecerem na Home e Listas
     mainSections = ["posts"]
     
-    # Configurações para as imagens WebP aparecerem
+    # Configurações cruciais para as imagens WebP aparecerem
     [params.cover]
         linkFullImages = true
         responsiveImages = false
