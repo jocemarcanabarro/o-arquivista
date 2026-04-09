@@ -6,26 +6,28 @@ theme = 'PaperMod'
 [params]
     env = 'production'
     title = 'O Arquivista VIP'
-    description = 'O maior acervo multidisciplinar para Laser, 3D, Papercraft e Sublimação.'
+    description = 'Catálogo multidisciplinar: Laser, 3D, Papercraft e Sublimação.'
     defaultTheme = 'dark'
-    showShareButtons = true
-    showCodeCopyButtons = true
+    
+    # --- CONFIGURAÇÃO DE CATÁLOGO ---
+    showFullTextContent = false
+    displayFullPostContent = false
+    hideMeta = true          # Esconde data e autor (essencial para catálogo)
+    showShareButtons = false # Deixa a vitrine mais limpa
+    showCodeCopyButtons = false
 
-    # --- CONFIGURAÇÃO DA LOGO NO TOPO ---
+    # --- LOGO ---
     [params.label]
         text = "O Arquivista"
         icon = "images/logo.png"
         iconHeight = 35
 
-    # --- CONFIGURAÇÃO DO ÍCONE DA ABA (FAVICON) ---
+    # --- ABA DO NAVEGADOR ---
     [params.assets]
         favicon = "images/logo.png"
-        favicon16x16 = "images/logo.png"
-        favicon32x32 = "images/logo.png"
-        apple_touch_icon = "images/logo.png"
 
 [markup.goldmark.renderer]
-    unsafe = true
+    unsafe = true # Permite links do Telegram nos posts
 
 [[menu.main]]
     name = 'Grupo Gratuito (Telegram)'
