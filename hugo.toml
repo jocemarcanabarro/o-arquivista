@@ -12,22 +12,23 @@ theme = 'PaperMod'
     # --- CONFIGURAÇÃO DE CATÁLOGO ---
     showFullTextContent = false
     displayFullPostContent = false
-    hideMeta = true          # Esconde data e autor (essencial para catálogo)
-    showShareButtons = false # Deixa a vitrine mais limpa
+    hideMeta = true
+    showShareButtons = false
     showCodeCopyButtons = false
 
-    # --- LOGO ---
+    # --- LOGO NO TOPO ---
     [params.label]
         text = "O Arquivista"
         icon = "images/logo.png"
         iconHeight = 35
 
-    # --- ABA DO NAVEGADOR ---
+    # --- ASSETS (FAVICON E CSS) ---
     [params.assets]
         favicon = "images/logo.png"
+        customCSS = ["css/extended.css"]
 
 [markup.goldmark.renderer]
-    unsafe = true # Permite links do Telegram nos posts
+    unsafe = true
 
 [[menu.main]]
     name = 'Grupo Gratuito (Telegram)'

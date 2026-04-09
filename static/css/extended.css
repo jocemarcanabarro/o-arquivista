@@ -1,0 +1,42 @@
+/* Organiza os itens em grade (3 colunas no PC, 1 no Celular) */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Ajusta o card de cada projeto */
+.post-entry {
+    background: var(--entry);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.post-entry:hover {
+    transform: translateY(-5px);
+}
+
+/* Padroniza o tamanho das imagens na vitrine */
+.entry-cover img {
+    height: 200px !important;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Esconde resumos, datas e textos repetitivos na página inicial */
+.entry-content, .post-meta, .entry-footer {
+    display: none;
+}
+
+/* Título mais elegante e centralizado */
+.entry-header h2 {
+    font-size: 1.1rem;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+}
