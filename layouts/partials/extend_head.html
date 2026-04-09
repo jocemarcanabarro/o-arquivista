@@ -1,65 +1,89 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- GRADE FORÇADA (HOME E LISTAS) --- */
-.main, .list, #alva, .archive-bundle {
+/* --- ESTRUTURA DA GRADE --- */
+.main, .list, .archive-bundle, #alva {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
     gap: 20px !important;
     max-width: 1200px !important;
     margin: auto !important;
     padding: 20px !important;
 }
 
-/* --- MOSTRAR IMAGENS QUE SUMIRAM --- */
-.entry-cover, .entry-content, .post-content img {
+/* --- FORÇAR FOTOS QUADRADAS (FIX DA FOTO 4) --- */
+.entry-cover img, .post-entry img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important; /* Isso garante o quadrado perfeito */
+    object-fit: cover !important;
+    border-radius: 12px !important;
     display: block !important;
 }
 
-.entry-cover img {
-    width: 100% !important;
-    height: 200px !important;
-    object-fit: cover !important;
-    border-radius: 12px !important;
-    background: #2a2b2d !important; /* Fundo cinza se a foto falhar */
+/* --- ORGANIZAR TEXTO ABAIXO DA FOTO (FIX DA FOTO 2) --- */
+.entry-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-top: 10px !important;
 }
 
-/* --- SIDEBAR FIXA (PC) --- */
+.entry-header h2 {
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    word-break: break-word !important;
+}
+
+/* --- SIDEBAR FIXA NO PC --- */
 @media (min-width: 900px) {
     .header {
         position: fixed !important;
         left: 0; top: 0;
-        width: 260px !important;
+        width: 250px !important;
         height: 100vh !important;
         background: #1d1e20 !important;
         border-right: 1px solid #333 !important;
         padding: 40px 20px !important;
         z-index: 1000;
     }
-    .main { margin-left: 280px !important; }
+    .main { margin-left: 270px !important; }
 }
 
-/* --- CELULAR (2 COLUNAS) --- */
+/* --- CELULAR LIMPO (FIX DA FOTO 1) --- */
 @media (max-width: 899px) {
-    .main, .list { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-    .header { position: relative !important; width: 100% !important; height: auto !important; }
+    .header {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 15px !important;
+        background: #1d1e20 !important;
+        border-bottom: 1px solid #333 !important;
+    }
+    .main { margin-left: 0 !important; }
+    .main, .list { 
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 por linha no celular */
+        gap: 15px !important; 
+        padding: 15px !important;
+    }
 }
 
-/* ESCONDER TEXTOS QUE POLUEM A GRADE */
+/* --- LIMPEZA DE LIXO VISUAL --- */
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
-.entry-header h2 { font-size: 1rem !important; text-align: center; }
+.post-entry { border: none !important; background: none !important; box-shadow: none !important; padding: 0 !important; }
 </style>
 
-<div id="sidebar-menu-links" style="display: none;">
+<div id="sidebar-links" style="display: none;">
     <h3 style="color: #00ff00; font-size: 0.9rem; margin-bottom: 15px;">📂 NAVEGAÇÃO</h3>
-    <a href="/categories/impressao-3d/" style="display: block; padding: 10px; background: #2a2b2d; border-radius: 5px; color: #fff; margin-bottom: 8px; text-decoration: none; font-size: 0.8rem;">📦 Impressão 3D</a>
-    <a href="/categories/corte-laser/" style="display: block; padding: 10px; background: #2a2b2d; border-radius: 5px; color: #fff; margin-bottom: 8px; text-decoration: none; font-size: 0.8rem;">🔥 Corte Laser</a>
-    <a href="/" style="display: block; padding: 10px; border: 1px solid #444; border-radius: 5px; color: #888; text-decoration: none; font-size: 0.8rem; text-align: center;">🏠 Ver Tudo</a>
+    <a href="/categories/impressao-3d/" style="display: block; padding: 12px; background: #2a2b2d; border-radius: 6px; color: #fff; margin-bottom: 10px; text-decoration: none; font-size: 0.85rem;">📦 Impressão 3D</a>
+    <a href="/categories/corte-laser/" style="display: block; padding: 12px; background: #2a2b2d; border-radius: 6px; color: #fff; margin-bottom: 10px; text-decoration: none; font-size: 0.85rem;">🔥 Corte Laser</a>
+    <a href="/" style="display: block; padding: 10px; border: 1px solid #444; border-radius: 6px; color: #888; text-decoration: none; font-size: 0.8rem; text-align: center;">🏠 Ver Tudo</a>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const menu = document.getElementById('sidebar-menu-links');
+    const menu = document.getElementById('sidebar-links');
     const header = document.querySelector('.header');
     if (menu && header && window.innerWidth > 900) {
         menu.style.display = 'block';
