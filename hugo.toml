@@ -3,12 +3,18 @@ languageCode = 'pt-br'
 title = 'O Arquivista VIP'
 theme = 'PaperMod'
 
+# Ativa o Robots.txt para o Google encontrar o Sitemap
+enableRobotsTXT = true
+
 [params]
     env = 'production'
     title = 'O Arquivista VIP'
     description = 'Catálogo multidisciplinar: Laser, 3D, Papercraft e Sublimação.'
     defaultTheme = 'dark'
     
+    # --- VERIFICAÇÃO DO GOOGLE ---
+    googleSiteVerification = "vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0"
+
     # --- CONFIGURAÇÃO DE CATÁLOGO ---
     showFullTextContent = false
     displayFullPostContent = false
@@ -16,13 +22,11 @@ theme = 'PaperMod'
     showShareButtons = false
     showCodeCopyButtons = false
 
-    # --- LOGO NO TOPO ---
     [params.label]
         text = "O Arquivista"
         icon = "images/logo.png"
         iconHeight = 35
 
-    # --- ASSETS (FAVICON E CSS) ---
     [params.assets]
         favicon = "images/logo.png"
         customCSS = ["css/extended.css"]
