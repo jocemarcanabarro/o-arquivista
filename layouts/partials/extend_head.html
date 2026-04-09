@@ -1,34 +1,27 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- GRADE TIPO CATÁLOGO --- */
+/* --- GRADE DE VITRINE (2 COLUNAS NO CELULAR) --- */
 .main, .list {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
     gap: 15px !important;
     padding: 15px !important;
-    max-width: 1200px !important;
-    margin: auto !important;
 }
 
-/* --- FOTOS QUADRADAS --- */
-.entry-cover img {
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    object-fit: cover !important;
-    border-radius: 12px !important;
-    background: #2a2b2d !important;
-}
+/* --- LIMPEZA DO HEADER PADRÃO (O QUE ESTÁ ATRAPALHANDO) --- */
+#menu, .menu, .logo-switches { display: none !important; } /* Esconde o menu velho */
+.nav { justify-content: center !important; } /* Centraliza a Logo */
 
-/* --- MENU MOBILE (NO TOPO DA GRADE) --- */
+/* --- MENU JOTTA PREMIUM (MOBILE) --- */
 @media (max-width: 899px) {
-    .header { position: relative !important; padding: 15px 0 !important; }
-    .main { margin-top: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
+    .header { padding: 10px 0 !important; border: none !important; }
+    .main { margin-top: 5px !important; grid-template-columns: repeat(2, 1fr) !important; }
     
-    .menu-jotta-premium {
+    .menu-jotta-container {
         display: flex !important;
-        width: 100% !important;
-        padding: 0 15px 20px 15px !important;
+        width: 94% !important;
+        margin: 0 auto 20px auto !important;
         gap: 8px !important;
         box-sizing: border-box !important;
     }
@@ -36,42 +29,47 @@
         flex: 1 !important;
         background: #2a2b2d !important;
         color: #fff !important;
-        padding: 14px 5px !important;
+        padding: 14px 2px !important;
         border-radius: 8px !important;
         text-align: center !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
         font-weight: bold !important;
         text-decoration: none !important;
         border: 1px solid #444 !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
     }
 }
 
-/* --- MENU PC (SIDEBAR FIXA) --- */
+/* --- MENU JOTTA PREMIUM (PC) --- */
 @media (min-width: 900px) {
-    .header { position: fixed !important; left: 0; top: 0; width: 250px !important; height: 100vh !important; background: #1d1e20 !important; padding: 40px 20px !important; z-index: 1000; }
+    .header { position: fixed !important; left: 0; top: 0; width: 250px !important; height: 100vh !important; background: #1d1e20 !important; padding: 40px 20px !important; z-index: 1000; border-right: 1px solid #333 !important; }
     .main { margin-left: 270px !important; }
-    .menu-jotta-premium { display: block !important; margin-top: 30px; }
+    .menu-jotta-container { display: block !important; margin-top: 40px; }
     .btn-jotta { 
         display: block !important; 
         background: #2a2b2d !important; 
         color: #fff !important; 
         padding: 12px !important; 
-        margin-bottom: 10px !important;
-        border-radius: 6px !important;
+        margin-bottom: 12px !important;
+        border-radius: 8px !important;
         text-decoration: none !important;
         border: 1px solid #333 !important;
+        text-align: center !important;
     }
     .btn-jotta:hover { background: #00ff00 !important; color: #000 !important; }
 }
 
-/* AJUSTES FINAIS */
+/* --- IMAGENS E TÍTULOS --- */
+.entry-cover img { width: 100% !important; aspect-ratio: 1/1 !important; object-fit: cover !important; border-radius: 12px !important; }
 .entry-header { margin-top: 10px !important; text-align: center !important; }
-.entry-header h2 { font-size: 0.9rem !important; line-height: 1.3 !important; font-weight: 500 !important; }
+.entry-header h2 { font-size: 0.85rem !important; line-height: 1.3 !important; }
+
+/* ESCONDER LIXO */
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
 .post-entry { border: none !important; background: transparent !important; padding: 0 !important; }
 </style>
 
-<div id="jotta-nav" class="menu-jotta-premium" style="display: none;">
+<div id="jotta-premium-nav" class="menu-jotta-container" style="display: none;">
     <a href="/categories/impressao-3d/" class="btn-jotta">📦 3D</a>
     <a href="/categories/corte-laser/" class="btn-jotta">🔥 LASER</a>
     <a href="/" class="btn-jotta">🏠 TUDO</a>
@@ -79,18 +77,17 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var menu = document.getElementById('jotta-nav');
+    var menu = document.getElementById('jotta-premium-nav');
     var header = document.querySelector('.header');
     var main = document.querySelector('.main');
 
     if (menu && header && main) {
         if (window.innerWidth > 900) {
-            // No PC, coloca dentro da Sidebar
             header.appendChild(menu);
             menu.style.display = 'block';
         } else {
-            // No Celular, coloca no topo da grade (main)
-            main.parentNode.insertBefore(menu, main);
+            // No mobile, coloca LOGO ABAIXO do Header e ANTES da Grade
+            header.after(menu);
             menu.style.display = 'flex';
         }
     }
