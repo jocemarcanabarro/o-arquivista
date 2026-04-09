@@ -1,27 +1,77 @@
-baseURL = 'https://www.oarquivista.com/'
-languageCode = 'pt-br'
-title = 'O Arquivista VIP'
-theme = 'PaperMod'
-enableRobotsTXT = true
+<meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
-[taxonomies]
-  category = 'categories'
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.querySelector('.header');
+    // Só injeta o menu se não estiver no celular (largura maior que 900px)
+    if (header && window.innerWidth > 900 && !document.querySelector('#custom-sidebar')) {
+        const sidebarHtml = `
+            <div id="custom-sidebar" style="margin-top: 30px; width: 100%;">
+                <h3 style="font-size: 1rem; color: #00ff00; margin-bottom: 15px;">📂 NAVEGAÇÃO</h3>
+                <a href="/categories/impressao-3d/" style="display: block; padding: 10px; margin-bottom: 5px; background: #2a2b2d; border-radius: 5px; color: #fff; text-decoration: none; font-size: 0.9rem;">📦 Impressão 3D</a>
+                <a href="/categories/corte-laser/" style="display: block; padding: 10px; margin-bottom: 5px; background: #2a2b2d; border-radius: 5px; color: #fff; text-decoration: none; font-size: 0.9rem;">🔥 Corte Laser</a>
+                <a href="/" style="display: block; padding: 10px; margin-top: 15px; border: 1px solid #444; border-radius: 5px; color: #888; text-decoration: none; font-size: 0.8rem; text-align: center;">🏠 Ver Tudo</a>
+            </div>
+        `;
+        header.insertAdjacentHTML('beforeend', sidebarHtml);
+    }
+});
+</script>
 
-[params]
-    env = 'production'
-    title = 'O Arquivista VIP'
-    description = 'Catálogo de arquivos para Laser e 3D.'
-    defaultTheme = 'dark'
-    
-    # ISSO VAI FAZER OS POSTS APARECEREM NA HOME
-    mainSections = ["posts"]
-    
-    showFullTextContent = false
-    displayFullPostContent = false
-    hideMeta = true
+<style>
+/* --- GRADE PADRÃO (RESPONSIVA) --- */
+.main, .list, .terms {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 15px !important;
+    max-width: 1200px !important;
+    margin: auto !important;
+    padding: 10px !important;
+}
 
-    [params.assets]
-        favicon = "images/logo.png"
+/* --- AJUSTE DE IMAGENS --- */
+.entry-cover img, .post-content img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    display: block !important;
+}
 
-[markup.goldmark.renderer]
-    unsafe = true
+/* --- CONFIGURAÇÃO PARA COMPUTADOR (SIDEBAR) --- */
+@media (min-width: 900px) {
+    .header { 
+        position: fixed !important; 
+        left: 0; 
+        top: 0; 
+        width: 250px !important; 
+        height: 100vh !important; 
+        background: #1d1e20 !important; 
+        padding: 30px 20px !important; 
+        border-right: 1px solid #333 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .main { margin-left: 270px !important; }
+}
+
+/* --- CONFIGURAÇÃO PARA CELULAR (REMOVER LOUCURA) --- */
+@media (max-width: 899px) {
+    .header {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 10px !important;
+        border: none !important;
+        background: none !important;
+    }
+    .main { margin-left: 0 !important; }
+    .main, .list { grid-template-columns: repeat(2, 1fr) !important; } /* 2 colunas no celular */
+}
+
+/* --- LIMPEZA GERAL --- */
+.entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
+.page-header h1 { grid-column: 1 / -1 !important; text-align: center; font-size: 1.2rem; }
+.footer { grid-column: 1 / -1 !important; padding: 40px 0 !important; }
+</style>
