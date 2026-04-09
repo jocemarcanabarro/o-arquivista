@@ -1,0 +1,12 @@
+<div class="sidebar-menu">
+    <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: var(--primary);">📂 Categorias</h3>
+    <ul style="list-style: none; padding: 0;">
+        {{ range .Site.Taxonomies.categories }}
+        <li style="margin-bottom: 10px;">
+            <a href="{{ .Page.Permalink }}" style="display: block; padding: 8px; background: #2a2b2d; border-radius: 5px; text-decoration: none; color: #fff; font-size: 0.9rem;">
+                {{ .Page.Title }} <span style="float: right; opacity: 0.5;">({{ .Count }})</span>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
