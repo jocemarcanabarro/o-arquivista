@@ -1,98 +1,75 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- RESET DE MARGENS DO TEMA (CELULAR) --- */
+/* --- RESET GERAL MOBILE --- */
 @media (max-width: 899px) {
-    .header { 
-        padding: 10px 0 !important; 
-        display: block !important;
-    }
-    .nav {
-        flex-direction: column !important;
-        align-items: center !important;
-        margin: 0 !important;
-        width: 100% !important;
-    }
-    .logo { margin-bottom: 15px !important; }
-
-    /* MENU MOBILE - OCUPANDO A TELA TODA */
-    #nav-container {
-        display: flex !important;
-        width: 95% !important; /* Quase a tela toda */
-        margin: 0 auto 15px auto !important;
-        gap: 5px !important;
-        justify-content: center !important;
-    }
-    .btn-nav {
-        flex: 1 !important;
-        padding: 12px 2px !important;
-        font-size: 0.8rem !important;
-        font-weight: bold !important;
-        margin: 0 !important;
-    }
+    .header { padding: 10px 0 !important; }
+    .nav { flex-direction: column !important; margin: 0 !important; width: 100% !important; }
     
-    /* GRADE DE FOTOS */
+    /* Grade de Fotos 2 Colunas Limpa */
     .main, .list {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
         padding: 10px !important;
     }
+    
+    /* Novo container de botões */
+    .menu-novo-jotta {
+        display: flex !important;
+        width: 98% !important;
+        margin: 10px auto !important;
+        gap: 5px !important;
+        justify-content: center !important;
+    }
+    
+    .btn-jotta {
+        flex: 1 !important;
+        background: #00ff00 !important; /* VERDE PARA TESTE */
+        color: #000 !important;
+        padding: 12px 2px !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        font-size: 0.8rem !important;
+        text-decoration: none !important;
+    }
 }
 
-/* --- ESTILO DOS BOTÕES (GERAL) --- */
-.btn-nav {
-    background: #00ff00 !important; /* Verde chamativo para testar se aplicou */
-    color: #000 !important;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
-    border: none;
-    transition: 0.2s;
-}
-
-/* --- TÍTULOS E IMAGENS --- */
-.entry-cover img {
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    object-fit: cover !important;
-    border-radius: 10px !important;
-}
-.entry-header {
-    margin-top: 10px !important;
-    text-align: center !important;
-}
-
-/* --- MANTER PC PERFEITO --- */
+/* --- MANTER PC INTACTO --- */
 @media (min-width: 900px) {
     .header { position: fixed !important; left: 0; top: 0; width: 250px !important; height: 100vh !important; background: #1d1e20 !important; padding: 40px 20px !important; z-index: 1000; }
     .main { margin-left: 270px !important; }
-    #nav-container { display: block !important; margin-top: 30px; }
-    .btn-nav { 
+    .menu-novo-jotta { display: block !important; margin-top: 30px; }
+    .btn-jotta { 
         display: block !important; 
         background: #2a2b2d !important; 
         color: #fff !important; 
         padding: 12px !important; 
-        margin-bottom: 10px !important; 
+        margin-bottom: 10px !important;
+        border-radius: 6px !important;
+        text-decoration: none !important;
     }
 }
 
-/* ESCONDER LIXO */
+/* FIX IMAGENS E TÍTULOS */
+.entry-cover img { width: 100% !important; aspect-ratio: 1/1 !important; object-fit: cover !important; border-radius: 10px !important; }
+.entry-header { margin-top: 8px !important; text-align: center !important; }
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
 </style>
 
-<div id="nav-container" style="display: none;">
-    <a href="/categories/impressao-3d/" class="btn-nav">📦 3D</a>
-    <a href="/categories/corte-laser/" class="btn-nav">🔥 LASER</a>
-    <a href="/" class="btn-nav">🏠 TUDO</a>
+<div id="container-fix" class="menu-novo-jotta" style="display: none;">
+    <a href="/categories/impressao-3d/" class="btn-jotta">📦 3D</a>
+    <a href="/categories/corte-laser/" class="btn-jotta">🔥 LASER</a>
+    <a href="/" class="btn-jotta">🏠 TUDO</a>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.getElementById('nav-container');
-    const header = document.querySelector('.header');
-    if (nav && header) {
-        nav.style.display = 'flex';
-        header.appendChild(nav);
+    var menu = document.getElementById('container-fix');
+    var header = document.querySelector('.header');
+    if (menu && header) {
+        menu.style.display = (window.innerWidth > 900) ? 'block' : 'flex';
+        header.appendChild(menu);
     }
 });
 </script>
