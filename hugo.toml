@@ -10,28 +10,18 @@ enableRobotsTXT = true
 [params]
     env = 'production'
     title = 'O Arquivista VIP'
-    description = 'O maior catálogo multidisciplinar de vetores e arquivos digitais.'
+    description = 'Arquivos para Laser e 3D.'
     defaultTheme = 'dark'
     googleSiteVerification = "vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0"
     
-    # Exibir posts na Home (Últimos arquivos postados)
-    listSections = ["posts"]
+    # Isso força a Home a mostrar os posts
+    mainSections = ["posts"]
     showFullTextContent = false
     displayFullPostContent = false
     hideMeta = true
-
-    [params.label]
-        text = "O Arquivista"
-        icon = "images/logo.png"
-        iconHeight = 35
 
     [params.assets]
         favicon = "images/logo.png"
 
 [markup.goldmark.renderer]
     unsafe = true
-
-[[menu.main]]
-    name = 'Grupo Gratuito'
-    url = 'https://t.me/O_Arquivista'
-    weight = 10
