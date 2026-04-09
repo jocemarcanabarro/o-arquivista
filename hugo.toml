@@ -2,39 +2,34 @@ baseURL = 'https://www.oarquivista.com/'
 languageCode = 'pt-br'
 title = 'O Arquivista VIP'
 theme = 'PaperMod'
-
-# Ativa o Robots.txt para o Google encontrar o Sitemap
 enableRobotsTXT = true
 
 [params]
     env = 'production'
     title = 'O Arquivista VIP'
-    description = 'Catálogo multidisciplinar: Laser, 3D, Papercraft e Sublimação.'
+    description = 'Catálogo multidisciplinar de arquivos para Laser, 3D e Sublimação.'
     defaultTheme = 'dark'
-    
-    # --- VERIFICAÇÃO DO GOOGLE ---
     googleSiteVerification = "vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0"
-
-    # --- CONFIGURAÇÃO DE CATÁLOGO ---
+    
+    # --- CONFIGURAÇÃO DE GRADE ---
     showFullTextContent = false
     displayFullPostContent = false
     hideMeta = true
-    showShareButtons = false
-    showCodeCopyButtons = false
-
-    [params.label]
-        text = "O Arquivista"
-        icon = "images/logo.png"
-        iconHeight = 35
+    
+    # Isso força o PaperMod a usar o layout de lista compacta
+    [params.homeInfoParams]
+        Title = "Catálogo O Arquivista"
+        Content = "Os melhores vetores para sua produção."
 
     [params.assets]
         favicon = "images/logo.png"
+        # Forçamos o caminho relativo correto do CSS
         customCSS = ["css/extended.css"]
 
 [markup.goldmark.renderer]
     unsafe = true
 
 [[menu.main]]
-    name = 'Grupo Gratuito (Telegram)'
+    name = 'Grupo Gratuito'
     url = 'https://t.me/O_Arquivista'
     weight = 10
