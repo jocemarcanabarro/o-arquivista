@@ -2,23 +2,18 @@ baseURL = 'https://www.oarquivista.com/'
 languageCode = 'pt-br'
 title = 'O Arquivista VIP'
 theme = 'PaperMod'
-enableRobotsTXT = true
 
 [taxonomies]
   category = 'categories'
 
 [params]
     env = 'production'
-    title = 'O Arquivista VIP'
-    description = 'Catálogo de arquivos para Laser e 3D.'
     defaultTheme = 'dark'
+    mainSections = ["posts"] # Crucial para aparecer na Home
     
-    # ISSO VAI FAZER OS POSTS APARECEREM NA HOME
-    mainSections = ["posts"]
-    
-    showFullTextContent = false
-    displayFullPostContent = false
-    hideMeta = true
+    [params.cover]
+        linkFullImages = true
+        responsiveImages = false # Desativar para evitar que o Hugo "suma" com elas
 
     [params.assets]
         favicon = "images/logo.png"

@@ -1,92 +1,70 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- MENU LATERAL FIXO (PC) --- */
+/* --- GRADE FORÇADA (HOME E LISTAS) --- */
+.main, .list, #alva, .archive-bundle {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+    max-width: 1200px !important;
+    margin: auto !important;
+    padding: 20px !important;
+}
+
+/* --- MOSTRAR IMAGENS QUE SUMIRAM --- */
+.entry-cover, .entry-content, .post-content img {
+    display: block !important;
+}
+
+.entry-cover img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    background: #2a2b2d !important; /* Fundo cinza se a foto falhar */
+}
+
+/* --- SIDEBAR FIXA (PC) --- */
 @media (min-width: 900px) {
-    body {
-        display: flex;
-        flex-direction: row;
-    }
     .header {
         position: fixed !important;
-        left: 0;
-        top: 0;
+        left: 0; top: 0;
         width: 260px !important;
         height: 100vh !important;
         background: #1d1e20 !important;
         border-right: 1px solid #333 !important;
         padding: 40px 20px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
         z-index: 1000;
     }
-    .main { 
-        margin-left: 280px !important; 
-        max-width: calc(100% - 300px) !important;
-    }
-    
-    /* Injetando o título e links via CSS para garantir que apareçam */
-    .header::after {
-        content: "📂 NAVEGAÇÃO";
-        color: #00ff00;
-        font-weight: bold;
-        font-size: 0.9rem;
-        margin-top: 30px;
-        display: block;
-    }
+    .main { margin-left: 280px !important; }
 }
 
-/* --- LINKS DAS CATEGORIAS (ESTILO BOTÃO) --- */
-.nav-menu-custom {
-    margin-top: 20px;
-    width: 100%;
-}
-.nav-menu-custom a {
-    display: block;
-    padding: 12px;
-    margin-bottom: 8px;
-    background: #2a2b2d;
-    border-radius: 6px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: 0.3s;
-}
-.nav-menu-custom a:hover { background: #3e3f42; }
-
-/* --- GRADE DE FOTOS --- */
-.main, .list {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-    gap: 20px !important;
-}
-
-/* --- AJUSTE CELULAR --- */
+/* --- CELULAR (2 COLUNAS) --- */
 @media (max-width: 899px) {
-    .header { width: 100% !important; height: auto !important; position: relative !important; border: none !important; }
-    .main { margin-left: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
-    #desktop-menu { display: none; } /* Esconde menu lateral no celular */
+    .main, .list { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .header { position: relative !important; width: 100% !important; height: auto !important; }
 }
 
-/* Limpeza de textos desnecessários */
-.entry-content, .post-meta, .entry-footer { display: none !important; }
-.entry-cover img { aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; }
+/* ESCONDER TEXTOS QUE POLUEM A GRADE */
+.entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
+.entry-header h2 { font-size: 1rem !important; text-align: center; }
 </style>
 
-<div id="desktop-menu" class="nav-menu-custom" style="display: none;">
-    <script>
-        // Este script apenas move o menu para dentro da sidebar no PC
-        document.addEventListener("DOMContentLoaded", function() {
-            if (window.innerWidth > 900) {
-                const menu = document.getElementById('desktop-menu');
-                const header = document.querySelector('.header');
-                menu.style.display = 'block';
-                header.appendChild(menu);
-            }
-        });
-    </script>
-    <a href="/categories/impressao-3d/">📦 Impressão 3D</a>
-    <a href="/categories/corte-laser/">🔥 Corte Laser</a>
-    <a href="/">🏠 Ver Tudo</a>
+<div id="sidebar-menu-links" style="display: none;">
+    <h3 style="color: #00ff00; font-size: 0.9rem; margin-bottom: 15px;">📂 NAVEGAÇÃO</h3>
+    <a href="/categories/impressao-3d/" style="display: block; padding: 10px; background: #2a2b2d; border-radius: 5px; color: #fff; margin-bottom: 8px; text-decoration: none; font-size: 0.8rem;">📦 Impressão 3D</a>
+    <a href="/categories/corte-laser/" style="display: block; padding: 10px; background: #2a2b2d; border-radius: 5px; color: #fff; margin-bottom: 8px; text-decoration: none; font-size: 0.8rem;">🔥 Corte Laser</a>
+    <a href="/" style="display: block; padding: 10px; border: 1px solid #444; border-radius: 5px; color: #888; text-decoration: none; font-size: 0.8rem; text-align: center;">🏠 Ver Tudo</a>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.getElementById('sidebar-menu-links');
+    const header = document.querySelector('.header');
+    if (menu && header && window.innerWidth > 900) {
+        menu.style.display = 'block';
+        header.appendChild(menu);
+    }
+});
+</script>
+
