@@ -1,45 +1,56 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- RESET GERAL MOBILE --- */
+/* --- GRADE TIPO CATÁLOGO --- */
+.main, .list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+    gap: 15px !important;
+    padding: 15px !important;
+    max-width: 1200px !important;
+    margin: auto !important;
+}
+
+/* --- FOTOS QUADRADAS --- */
+.entry-cover img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    background: #2a2b2d !important;
+}
+
+/* --- MENU MOBILE (NO TOPO DA GRADE) --- */
 @media (max-width: 899px) {
-    .header { padding: 10px 0 !important; }
-    .nav { flex-direction: column !important; margin: 0 !important; width: 100% !important; }
+    .header { position: relative !important; padding: 15px 0 !important; }
+    .main { margin-top: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
     
-    /* Grade de Fotos 2 Colunas Limpa */
-    .main, .list {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        padding: 10px !important;
-    }
-    
-    /* Novo container de botões */
-    .menu-novo-jotta {
+    .menu-jotta-premium {
         display: flex !important;
-        width: 98% !important;
-        margin: 10px auto !important;
-        gap: 5px !important;
-        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 15px 20px 15px !important;
+        gap: 8px !important;
+        box-sizing: border-box !important;
     }
-    
     .btn-jotta {
         flex: 1 !important;
-        background: #00ff00 !important; /* VERDE PARA TESTE */
-        color: #000 !important;
-        padding: 12px 2px !important;
+        background: #2a2b2d !important;
+        color: #fff !important;
+        padding: 14px 5px !important;
         border-radius: 8px !important;
         text-align: center !important;
-        font-weight: bold !important;
         font-size: 0.8rem !important;
+        font-weight: bold !important;
         text-decoration: none !important;
+        border: 1px solid #444 !important;
     }
 }
 
-/* --- MANTER PC INTACTO --- */
+/* --- MENU PC (SIDEBAR FIXA) --- */
 @media (min-width: 900px) {
     .header { position: fixed !important; left: 0; top: 0; width: 250px !important; height: 100vh !important; background: #1d1e20 !important; padding: 40px 20px !important; z-index: 1000; }
     .main { margin-left: 270px !important; }
-    .menu-novo-jotta { display: block !important; margin-top: 30px; }
+    .menu-jotta-premium { display: block !important; margin-top: 30px; }
     .btn-jotta { 
         display: block !important; 
         background: #2a2b2d !important; 
@@ -48,16 +59,19 @@
         margin-bottom: 10px !important;
         border-radius: 6px !important;
         text-decoration: none !important;
+        border: 1px solid #333 !important;
     }
+    .btn-jotta:hover { background: #00ff00 !important; color: #000 !important; }
 }
 
-/* FIX IMAGENS E TÍTULOS */
-.entry-cover img { width: 100% !important; aspect-ratio: 1/1 !important; object-fit: cover !important; border-radius: 10px !important; }
-.entry-header { margin-top: 8px !important; text-align: center !important; }
+/* AJUSTES FINAIS */
+.entry-header { margin-top: 10px !important; text-align: center !important; }
+.entry-header h2 { font-size: 0.9rem !important; line-height: 1.3 !important; font-weight: 500 !important; }
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
+.post-entry { border: none !important; background: transparent !important; padding: 0 !important; }
 </style>
 
-<div id="container-fix" class="menu-novo-jotta" style="display: none;">
+<div id="jotta-nav" class="menu-jotta-premium" style="display: none;">
     <a href="/categories/impressao-3d/" class="btn-jotta">📦 3D</a>
     <a href="/categories/corte-laser/" class="btn-jotta">🔥 LASER</a>
     <a href="/" class="btn-jotta">🏠 TUDO</a>
@@ -65,11 +79,20 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var menu = document.getElementById('container-fix');
+    var menu = document.getElementById('jotta-nav');
     var header = document.querySelector('.header');
-    if (menu && header) {
-        menu.style.display = (window.innerWidth > 900) ? 'block' : 'flex';
-        header.appendChild(menu);
+    var main = document.querySelector('.main');
+
+    if (menu && header && main) {
+        if (window.innerWidth > 900) {
+            // No PC, coloca dentro da Sidebar
+            header.appendChild(menu);
+            menu.style.display = 'block';
+        } else {
+            // No Celular, coloca no topo da grade (main)
+            main.parentNode.insertBefore(menu, main);
+            menu.style.display = 'flex';
+        }
     }
 });
 </script>
