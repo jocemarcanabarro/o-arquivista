@@ -1,95 +1,86 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- BASE E GRADE --- */
-.main, .list {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-    gap: 12px !important;
-    padding: 10px !important;
-    max-width: 1200px !important;
-    margin: auto !important;
+/* --- RESET DE MARGENS DO TEMA (CELULAR) --- */
+@media (max-width: 899px) {
+    .header { 
+        padding: 10px 0 !important; 
+        display: block !important;
+    }
+    .nav {
+        flex-direction: column !important;
+        align-items: center !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .logo { margin-bottom: 15px !important; }
+
+    /* MENU MOBILE - OCUPANDO A TELA TODA */
+    #nav-container {
+        display: flex !important;
+        width: 95% !important; /* Quase a tela toda */
+        margin: 0 auto 15px auto !important;
+        gap: 5px !important;
+        justify-content: center !important;
+    }
+    .btn-nav {
+        flex: 1 !important;
+        padding: 12px 2px !important;
+        font-size: 0.8rem !important;
+        font-weight: bold !important;
+        margin: 0 !important;
+    }
+    
+    /* GRADE DE FOTOS */
+    .main, .list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 10px !important;
+    }
 }
 
-/* --- FOTOS QUADRADAS --- */
-.entry-cover img, .post-entry img {
+/* --- ESTILO DOS BOTÕES (GERAL) --- */
+.btn-nav {
+    background: #00ff00 !important; /* Verde chamativo para testar se aplicou */
+    color: #000 !important;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    transition: 0.2s;
+}
+
+/* --- TÍTULOS E IMAGENS --- */
+.entry-cover img {
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
-    border-radius: 8px !important;
-    display: block !important;
+    border-radius: 10px !important;
 }
-
-/* --- TÍTULOS (EVITAR ATROPELO) --- */
 .entry-header {
-    padding: 8px 0 !important;
-    min-height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-.entry-header h2 {
-    font-size: 0.85rem !important;
-    line-height: 1.2 !important;
+    margin-top: 10px !important;
     text-align: center !important;
-    margin: 0 !important;
 }
 
-/* --- MENU LATERAL (PC) --- */
+/* --- MANTER PC PERFEITO --- */
 @media (min-width: 900px) {
-    .header {
-        position: fixed !important;
-        left: 0; top: 0;
-        width: 250px !important;
-        height: 100vh !important;
-        background: #1d1e20 !important;
-        border-right: 1px solid #333 !important;
-        padding: 40px 20px !important;
-        z-index: 1000;
-    }
+    .header { position: fixed !important; left: 0; top: 0; width: 250px !important; height: 100vh !important; background: #1d1e20 !important; padding: 40px 20px !important; z-index: 1000; }
     .main { margin-left: 270px !important; }
-    #nav-container { margin-top: 30px; display: block !important; }
-}
-
-/* --- MENU MOBILE (BOTÕES LADO A LADO) --- */
-@media (max-width: 899px) {
-    .header { position: relative !important; width: 100% !important; padding: 10px !important; }
-    .main { margin-left: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
-    
-    #nav-container {
-        display: flex !important;
-        flex-wrap: nowrap !important; /* Força ficar em uma linha */
-        justify-content: space-between !important;
-        gap: 5px !important;
-        padding: 5px 0 15px 0 !important;
-    }
-    #nav-container h3 { display: none; }
+    #nav-container { display: block !important; margin-top: 30px; }
     .btn-nav { 
-        flex: 1 !important; 
-        font-size: 0.7rem !important; 
-        padding: 8px 2px !important;
-        margin-bottom: 0 !important;
+        display: block !important; 
+        background: #2a2b2d !important; 
+        color: #fff !important; 
+        padding: 12px !important; 
+        margin-bottom: 10px !important; 
     }
 }
 
-/* --- ESTILO DOS BOTÕES --- */
-.btn-nav {
-    display: block;
-    background: #2a2b2d;
-    border-radius: 5px;
-    color: #fff !important;
-    text-decoration: none;
-    text-align: center;
-    border: 1px solid #444;
-}
-
-/* LIMPEZA */
+/* ESCONDER LIXO */
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
-.post-entry { border: none !important; background: transparent !important; padding: 0 !important; }
 </style>
 
 <div id="nav-container" style="display: none;">
-    <h3 style="color: #00ff00; font-size: 0.9rem; margin-bottom: 15px; font-weight: bold;">📂 CATEGORIAS</h3>
     <a href="/categories/impressao-3d/" class="btn-nav">📦 3D</a>
     <a href="/categories/corte-laser/" class="btn-nav">🔥 LASER</a>
     <a href="/" class="btn-nav">🏠 TUDO</a>
@@ -100,9 +91,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const nav = document.getElementById('nav-container');
     const header = document.querySelector('.header');
     if (nav && header) {
-        nav.style.display = (window.innerWidth > 900) ? 'block' : 'flex';
+        nav.style.display = 'flex';
         header.appendChild(nav);
     }
 });
 </script>
-
