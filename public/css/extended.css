@@ -1,42 +1,37 @@
-/* Organiza os itens em grade (3 colunas no PC, 1 no Celular) */
+/* Forçar Grade: 3 colunas no PC, 2 colunas no Celular */
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 10px;
 }
 
-/* Ajusta o card de cada projeto */
-.post-entry {
-    background: var(--entry);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.2s;
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-}
-
-.post-entry:hover {
-    transform: translateY(-5px);
-}
-
-/* Padroniza o tamanho das imagens na vitrine */
+/* Deixar as fotos perfeitamente quadradas e uniformes */
 .entry-cover img {
-    height: 200px !important;
-    width: 100%;
-    object-fit: cover;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 8px;
 }
 
-/* Esconde resumos, datas e textos repetitivos na página inicial */
-.entry-content, .post-meta, .entry-footer {
-    display: none;
+/* Estilizar o Card do Projeto */
+.post-entry {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
 }
 
-/* Título mais elegante e centralizado */
+/* Título centralizado, curto e elegante embaixo da foto */
 .entry-header h2 {
-    font-size: 1.1rem;
-    padding: 15px;
-    margin: 0;
+    font-size: 0.9rem !important;
     text-align: center;
+    line-height: 1.2;
+    margin-top: 8px !important;
+}
+
+/* Esconder resumos e datas para limpar o catálogo */
+.entry-content, .post-meta, .entry-footer {
+    display: none !important;
 }
