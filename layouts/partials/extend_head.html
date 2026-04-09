@@ -1,42 +1,26 @@
 <meta name="google-site-verification" content="vyI8M7XR3GAMr7s54yCn4jO5zF6RbYEfLWn6JVwKOA0" />
 
 <style>
-/* --- ESTRUTURA DA GRADE --- */
-.main, .list, .archive-bundle, #alva {
+/* --- GRADE DE VITRINE --- */
+.main, .list {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-    gap: 20px !important;
+    gap: 15px !important;
     max-width: 1200px !important;
     margin: auto !important;
-    padding: 20px !important;
+    padding: 10px !important;
 }
 
-/* --- FORÇAR FOTOS QUADRADAS (FIX DA FOTO 4) --- */
+/* --- FOTOS QUADRADAS WEBP --- */
 .entry-cover img, .post-entry img {
     width: 100% !important;
-    aspect-ratio: 1 / 1 !important; /* Isso garante o quadrado perfeito */
+    aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     display: block !important;
 }
 
-/* --- ORGANIZAR TEXTO ABAIXO DA FOTO (FIX DA FOTO 2) --- */
-.entry-header {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    padding-top: 10px !important;
-}
-
-.entry-header h2 {
-    font-size: 0.95rem !important;
-    line-height: 1.2 !important;
-    text-align: center !important;
-    margin: 0 !important;
-    word-break: break-word !important;
-}
-
-/* --- SIDEBAR FIXA NO PC --- */
+/* --- MENU LATERAL (PC) --- */
 @media (min-width: 900px) {
     .header {
         position: fixed !important;
@@ -49,46 +33,61 @@
         z-index: 1000;
     }
     .main { margin-left: 270px !important; }
+    #nav-container { margin-top: 30px; display: block !important; }
 }
 
-/* --- CELULAR LIMPO (FIX DA FOTO 1) --- */
+/* --- MENU NO TOPO (CELULAR) --- */
 @media (max-width: 899px) {
-    .header {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 15px !important;
-        background: #1d1e20 !important;
-        border-bottom: 1px solid #333 !important;
-    }
+    .header { position: relative !important; width: 100% !important; padding: 15px 10px !important; }
     .main { margin-left: 0 !important; }
-    .main, .list { 
-        grid-template-columns: repeat(2, 1fr) !important; /* 2 por linha no celular */
-        gap: 15px !important; 
-        padding: 15px !important;
+    .main, .list { grid-template-columns: repeat(2, 1fr) !important; }
+    
+    #nav-container {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 10px 0 !important;
+        width: 100% !important;
     }
+    #nav-container h3 { display: none; }
 }
 
-/* --- LIMPEZA DE LIXO VISUAL --- */
+/* --- ESTILO DOS BOTÕES --- */
+.btn-nav {
+    display: block;
+    padding: 10px;
+    background: #2a2b2d;
+    border-radius: 6px;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-align: center;
+    border: 1px solid #444;
+    transition: 0.3s;
+}
+.btn-nav:hover { background: #00ff00; color: #000 !important; }
+
+/* LIMPEZA */
 .entry-content, .post-meta, .entry-footer, .first-entry { display: none !important; }
-.post-entry { border: none !important; background: none !important; box-shadow: none !important; padding: 0 !important; }
+.entry-header h2 { font-size: 0.9rem !important; text-align: center; padding: 5px; }
+.post-entry { border: none !important; background: transparent !important; }
 </style>
 
-<div id="sidebar-links" style="display: none;">
-    <h3 style="color: #00ff00; font-size: 0.9rem; margin-bottom: 15px;">📂 NAVEGAÇÃO</h3>
-    <a href="/categories/impressao-3d/" style="display: block; padding: 12px; background: #2a2b2d; border-radius: 6px; color: #fff; margin-bottom: 10px; text-decoration: none; font-size: 0.85rem;">📦 Impressão 3D</a>
-    <a href="/categories/corte-laser/" style="display: block; padding: 12px; background: #2a2b2d; border-radius: 6px; color: #fff; margin-bottom: 10px; text-decoration: none; font-size: 0.85rem;">🔥 Corte Laser</a>
-    <a href="/" style="display: block; padding: 10px; border: 1px solid #444; border-radius: 6px; color: #888; text-decoration: none; font-size: 0.8rem; text-align: center;">🏠 Ver Tudo</a>
+<div id="nav-container" style="display: none;">
+    <h3 style="color: #00ff00; font-size: 0.9rem; margin-bottom: 15px; font-weight: bold;">📂 CATEGORIAS</h3>
+    <a href="/categories/impressao-3d/" class="btn-nav">📦 3D</a>
+    <a href="/categories/corte-laser/" class="btn-nav">🔥 Laser</a>
+    <a href="/" class="btn-nav">🏠 Tudo</a>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const menu = document.getElementById('sidebar-links');
+    const nav = document.getElementById('nav-container');
     const header = document.querySelector('.header');
-    if (menu && header && window.innerWidth > 900) {
-        menu.style.display = 'block';
-        header.appendChild(menu);
+    if (nav && header) {
+        nav.style.display = (window.innerWidth > 900) ? 'block' : 'flex';
+        header.appendChild(nav);
     }
 });
 </script>
-

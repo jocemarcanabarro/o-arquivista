@@ -8,12 +8,20 @@ theme = 'PaperMod'
 
 [params]
     env = 'production'
+    title = 'O Arquivista VIP'
+    description = 'Catálogo de arquivos para Laser e 3D'
     defaultTheme = 'dark'
-    mainSections = ["posts"] # Crucial para aparecer na Home
     
+    # Faz os posts aparecerem na Home
+    mainSections = ["posts"]
+    
+    # Configurações para as imagens WebP aparecerem
     [params.cover]
         linkFullImages = true
-        responsiveImages = false # Desativar para evitar que o Hugo "suma" com elas
+        responsiveImages = false
+        hidden = false
+        hiddenInList = false
+        hiddenInSingle = false
 
     [params.assets]
         favicon = "images/logo.png"
