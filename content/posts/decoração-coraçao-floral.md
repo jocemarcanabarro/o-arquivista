@@ -1,10 +1,10 @@
 ---
 title: "Decoração Coraçao Floral"
-date: 2026-04-10T08:06:11+00:00
+date: 2026-04-10T08:07:47+00:00
 categories: ["Corte Laser"]
 summary: "Arquivo Técnico: decoração coraçao floral.zip"
 cover:
-    image: "images/projetos/placeholder.jpg"
+    image: "images/projetos/decoração-coraçao-floral.jpg"
     alt: "Decoração Coraçao Floral"
     hiddenInList: false
     hiddenInSingle: false
