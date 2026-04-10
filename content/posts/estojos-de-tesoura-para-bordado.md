@@ -1,6 +1,6 @@
 ---
 title: "Estojos De Tesoura Para Bordado"
-date: 2026-04-10T08:23:58+00:00
+date: 2026-04-10T08:25:37+00:00
 categories: ["Corte Laser"]
 summary: "Arquivo Técnico: Estojos De Tesoura Para Bordado.zip"
 cover:
